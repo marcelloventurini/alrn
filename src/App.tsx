@@ -1,9 +1,10 @@
 import './App.css'
+import Menu from './pages/Menu/Menu'
 
 function App() {
   return (
     <>
-      <h1>Hello</h1>
+      <Menu />
     </>
   )
 }

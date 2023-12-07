@@ -10,7 +10,8 @@ const Search = ({ search, setSearch }: SearchProps) => {
   return (
     <div className={styles.search}>
       <input value={search}
-        onChange={event => setSearch(event.target.value)} />
+        onChange={event => setSearch(event.target.value)}
+        placeholder="Buscar" />
       <CgSearch size={20} color="#4c4d5e" />
     </div>
   )

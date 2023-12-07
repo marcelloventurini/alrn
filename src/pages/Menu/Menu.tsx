@@ -2,9 +2,13 @@ import styles from "./Menu.module.scss"
 import logo from "../../assets/logo.svg"
 import Search from "./Search/Search"
 import { useState } from "react"
+import Filters from "./Filter/Filters"
+import Ordinator from "./Ordinator/Ordinator"
 
 const Menu = () => {
   const [search, setSearch] = useState("")
+  const [filter, setFilter] = useState<number | null>(null)
+  const [ordinator, setOrdinator] = useState("")
 
   return (
     <main>
@@ -21,6 +25,10 @@ const Menu = () => {
       <section className={styles.menu}>
         <h3 className={styles.menu__title}>Cardápio</h3>
         <Search search={search} setSearch={setSearch} />
+        <div className={styles.menu__filters}>
+          <Filters filter={filter} setFilter={setFilter} />
+          <Ordinator ordinator={ordinator} setOrdinator={setOrdinator} />
+        </div>
       </section>
     </main>
   )

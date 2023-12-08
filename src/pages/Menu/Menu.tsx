@@ -4,6 +4,7 @@ import Search from "./Search/Search"
 import { useState } from "react"
 import Filters from "./Filter/Filters"
 import Ordinator from "./Ordinator/Ordinator"
+import Items from "./Items/Items"
 
 const Menu = () => {
   const [search, setSearch] = useState("")
@@ -27,8 +28,11 @@ const Menu = () => {
         <Search search={search} setSearch={setSearch} />
         <div className={styles.menu__filters}>
           <Filters filter={filter} setFilter={setFilter} />
-          <Ordinator ordinator={ordinator} setOrdinator={setOrdinator} />
+          <Ordinator ordinator={ordinator}
+            setOrdinator={setOrdinator} />
         </div>
+
+        <Items search={search} filter={filter} ordinator={ordinator} />
       </section>
     </main>
   )

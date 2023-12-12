@@ -1,6 +1,6 @@
-import filters from "./filter.json"
-import styles from "./Filters.module.scss"
-import classNames from "classnames"
+import classNames from 'classnames'
+import styles from './Filters.module.scss'
+import filters from './filter.json'
 
 interface Item {
   id: number
@@ -20,17 +20,19 @@ const Filters = ({ filter, setFilter }: FiltersProps) => {
 
   return (
     <div className={styles.filters}>
-      {filters.map(item => (
-        <button className={classNames({
-          [styles.filters__filter]: true,
-          [styles["filters__filter--active"]]: filter === item.id
-        })}
-          key={item.id} onClick={() => selectFilter(item)}>
+      {filters.map((item) => (
+        <button
+          className={classNames({
+            [styles.filters__filter]: true,
+            [styles['filters__filter--active']]: filter === item.id,
+          })}
+          key={item.id}
+          onClick={() => selectFilter(item)}
+        >
           {item.label}
         </button>
-      ))
-      }
-    </div >
+      ))}
+    </div>
   )
 }
 

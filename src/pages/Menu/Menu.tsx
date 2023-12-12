@@ -1,40 +1,27 @@
-import styles from "./Menu.module.scss"
-import logo from "../../assets/logo.svg"
-import Search from "./Search/Search"
-import { useState } from "react"
-import Filters from "./Filter/Filters"
-import Ordinator from "./Ordinator/Ordinator"
-import Items from "./Items/Items"
+import { useState } from 'react'
+import themeStyles from 'styles/Theme.module.scss'
+import Filters from './Filter/Filters'
+import Items from './Items/Items'
+import styles from './Menu.module.scss'
+import Ordinator from './Ordinator/Ordinator'
+import Search from './Search/Search'
 
 const Menu = () => {
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState('')
   const [filter, setFilter] = useState<number | null>(null)
-  const [ordinator, setOrdinator] = useState("")
+  const [ordinator, setOrdinator] = useState('')
 
   return (
-    <main>
-      <nav className={styles.mainMenu}>
-        <img src={logo} alt="Logo Aluroni" />
-      </nav>
+    <section className={styles.menu}>
+      <h3 className={themeStyles.titulo}>Cardápio</h3>
+      <Search search={search} setSearch={setSearch} />
+      <div className={styles.menu__filters}>
+        <Filters filter={filter} setFilter={setFilter} />
+        <Ordinator ordinator={ordinator} setOrdinator={setOrdinator} />
+      </div>
 
-      <header className={styles.header}>
-        <div className={styles.header__text}>
-          A casa da massa.
-        </div>
-      </header>
-
-      <section className={styles.menu}>
-        <h3 className={styles.menu__title}>Cardápio</h3>
-        <Search search={search} setSearch={setSearch} />
-        <div className={styles.menu__filters}>
-          <Filters filter={filter} setFilter={setFilter} />
-          <Ordinator ordinator={ordinator}
-            setOrdinator={setOrdinator} />
-        </div>
-
-        <Items search={search} filter={filter} ordinator={ordinator} />
-      </section>
-    </main>
+      <Items search={search} filter={filter} ordinator={ordinator} />
+    </section>
   )
 }
 

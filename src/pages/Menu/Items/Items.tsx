@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import Item from "./Item/Item"
-import menu from "./items.json"
+import menu from "../../../data/menu.json"
 import styles from "./Items.module.scss"
+import { Menu } from "types/Dish"
 
 interface ItemsProps {
   search: string
@@ -22,7 +23,7 @@ const Items = ({ search, filter, ordinator }: ItemsProps) => {
     return true
   }
 
-  function order(newList: typeof menu) {
+  function order(newList: Menu) {
     switch (ordinator) {
       case 'porcao':
         return newList.sort((a, b) => a.size > b.size ? 1 : -1)
